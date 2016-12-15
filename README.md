@@ -28,4 +28,15 @@ and run
 $ docker-compose up
 ```
 
+### Improvements to make
+This is purposefully a very barebones container. Here's a list of improvements you should consider
+making to solidify your docker knowledge: 
 
+- Create your Mongo container with a user and password 
+- Edit your connection string in `server.js` to connect with your user and password credentials 
+- Serve assets with nginx instead of Express (nginx has tons of built in goodies and is much faster than Express) 
+- Persist data on the host machine with a volume for the mongo container.
+
+Note: DO NOT go to production without setting up a user and password for your mongo container. 
+Having insecured data like that is both irresponsible and dangerous. DO NOT USE THIS IN PRODUCTION unless you 
+have specified user credentials. 
