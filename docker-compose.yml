@@ -1,10 +1,11 @@
 version: '2'
 services:
   mongodb:
-    # image: bitnami/mongodb:latest
     image: mongo
     ports:
       - '27017:27017'
+    environment:
+      - MONGO_URL=mongodb://mongodb/exampleapp
   web:
     image: node:latest
     volumes:
