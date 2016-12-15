@@ -6,9 +6,10 @@ var app = express();
 // serve static files from ./public
 app.use(express.static(__dirname + '/public'));
 
-//Database Connection
+//Database Connection - Set a fallback URL for local mongo
+var mongoUri = process.env.MONGO_URL || "localhost:27017/exampleapp";  
 
-mongoose.connect("mongodb://mongo:27017/");
+mongoose.connect(mongoUri);
 mongoose.connection.once('open', function() {
   console.log("Connected to db at " + mongoUri);
 });
